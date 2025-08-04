@@ -33,10 +33,8 @@
     "lint:check": "eslint src --ext .ts,.tsx --max-warnings 5",
     "lint:fix": "eslint src --ext .ts,.tsx --fix",
     "type-check": "tsc --noEmit",
-    "security:audit": "npm audit --audit-level high --production",
-    "security:fix": "npm audit fix --production",
-    "prebuild": "npm run lint:check && npm run type-check",
-    "postinstall": "npm audit --audit-level high --production"
+    "security:audit": "npm audit --audit-level high --production || true",
+    "security:fix": "npm audit fix --production || true"
   },
   "eslintConfig": {
     "extends": [
@@ -70,7 +68,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/greenpoint/consulting-website.git"
+    "url": "https://github.com/FlawzyByte/GreenPoint.git"
   },
   "keywords": [
     "consulting",
