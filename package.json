@@ -1,0 +1,84 @@
+{
+  "name": "greenpoint-consulting",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Green Point - Mental and Business Consulting Lab",
+  "author": "Green Point Consulting",
+  "license": "MIT",
+  "dependencies": {
+    "@testing-library/jest-dom": "^6.6.4",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.126",
+    "@types/react": "^19.1.9",
+    "@types/react-dom": "^19.1.7",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-flagkit": "^2.0.4",
+    "react-icons": "^5.5.0",
+    "react-scripts": "5.0.1",
+    "react-scroll": "^1.9.3",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build:prod": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
+    "test": "react-scripts test --watchAll=false --coverage --passWithNoTests",
+    "test:ci": "react-scripts test --watchAll=false --coverage --passWithNoTests --ci",
+    "eject": "react-scripts eject",
+    "lint": "eslint src --ext .ts,.tsx --max-warnings 0",
+    "lint:check": "eslint src --ext .ts,.tsx --max-warnings 5",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "type-check": "tsc --noEmit",
+    "security:audit": "npm audit --audit-level high --production",
+    "security:fix": "npm audit fix --production",
+    "prebuild": "npm run lint:check && npm run type-check",
+    "postinstall": "npm audit --audit-level high --production"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "rules": {
+      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/no-explicit-any": "warn",
+      "react-hooks/exhaustive-deps": "warn"
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/react-scroll": "^1.8.10"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/greenpoint/consulting-website.git"
+  },
+  "keywords": [
+    "consulting",
+    "business",
+    "mental-health",
+    "strategy",
+    "management",
+    "react",
+    "typescript"
+  ]
+}
