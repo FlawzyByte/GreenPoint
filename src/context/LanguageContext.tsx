@@ -16,6 +16,7 @@ const translations = {
     // Navigation
     'nav.home': 'Home',
     'nav.services': 'Services',
+    'nav.about': 'About',
     'nav.contact': 'Contact',
     'nav.book': 'Book Appointment',
     
@@ -54,10 +55,25 @@ const translations = {
     
     // Contact
     'contact.title': 'Contact Us',
+    'contact.subtitle': 'Get in touch with us to start your transformation journey',
     'contact.question': 'Ask us a question that details and indicates your business challenge.',
     'contact.payments': 'Payments: pesos, dollars and cryptocurrencies',
     'contact.share': 'Share: Instagram, WhatsApp, Telegram',
     'contact.tree': 'Each client... We planted a tree together with a foundation... or collaborate with doctors without borders...',
+    
+    // Contact Form
+    'contact.form.title': 'Send us a message',
+    'contact.form.name': 'Your Name',
+    'contact.form.email': 'Your Email',
+    'contact.form.company': 'Company (Optional)',
+    'contact.form.message': 'Your Message',
+    'contact.form.send': 'Send Message',
+    'contact.form.success': 'Thank you for your message. We\'ll get back to you soon!',
+    
+    // Contact Info
+    'contact.info.title': 'Get in Touch',
+    'contact.payment.title': 'Payment Methods',
+    'contact.social.title': 'Follow Us',
     
     // Footer
     'footer.headquarters': 'Headquarters',
@@ -69,6 +85,7 @@ const translations = {
     // Navigation
     'nav.home': 'Inicio',
     'nav.services': 'Servicios',
+    'nav.about': 'Sobre Nosotros',
     'nav.contact': 'Contacto',
     'nav.book': 'Reservar Cita',
     
@@ -107,10 +124,25 @@ const translations = {
     
     // Contact
     'contact.title': 'Contáctanos',
+    'contact.subtitle': 'Ponte en contacto con nosotros para comenzar tu viaje de transformación',
     'contact.question': 'Haznos una pregunta que detalle e indique tu desafío empresarial.',
     'contact.payments': 'Pagos: pesos, dólares y criptomonedas',
     'contact.share': 'Compartir: Instagram, WhatsApp, Telegram',
     'contact.tree': 'Cada cliente... Plantamos un árbol junto con una fundación... o colaboramos con médicos sin fronteras...',
+    
+    // Contact Form
+    'contact.form.title': 'Envíanos un mensaje',
+    'contact.form.name': 'Tu Nombre',
+    'contact.form.email': 'Tu Email',
+    'contact.form.company': 'Empresa (Opcional)',
+    'contact.form.message': 'Tu Mensaje',
+    'contact.form.send': 'Enviar Mensaje',
+    'contact.form.success': '¡Gracias por tu mensaje. Te responderemos pronto!',
+    
+    // Contact Info
+    'contact.info.title': 'Ponte en Contacto',
+    'contact.payment.title': 'Métodos de Pago',
+    'contact.social.title': 'Síguenos',
     
     // Footer
     'footer.headquarters': 'Sedes',
