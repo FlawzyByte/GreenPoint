@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { FaWhatsapp, FaTelegram, FaInstagram } from 'react-icons/fa';
+import { FaWhatsapp, FaInstagram } from 'react-icons/fa';
 import './Contact.css';
 
 const Contact: React.FC = () => {
@@ -111,8 +111,8 @@ const Contact: React.FC = () => {
             <div className="payment-section">
               <h4 className="payment-title">{t('contact.payment.title')}</h4>
               <div className="payment-buttons">
-                <button type="button" className="payment-btn paypal">
-                  PayPal
+                <button type="button" className="payment-btn mercadopago">
+                  MercadoPago
                 </button>
                 <button type="button" className="payment-btn stripe">
                   Credit Card
@@ -133,16 +133,7 @@ const Contact: React.FC = () => {
                   <span>WhatsApp</span>
                 </button>
                 
-                <button 
-                  type="button" 
-                  className="social-btn telegram"
-                  onClick={() => window.open('https://t.me/your-username', '_blank', 'noopener,noreferrer')}
-                  aria-label="Contact us on Telegram"
-                >
-                  <FaTelegram />
-                  <span>Telegram</span>
-                </button>
-                
+ 
                 <button 
                   type="button" 
                   className="social-btn instagram"

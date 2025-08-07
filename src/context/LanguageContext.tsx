@@ -18,10 +18,11 @@ const translations = {
     'nav.services': 'Services',
     'nav.about': 'About',
     'nav.contact': 'Contact',
+    'nav.membership': 'Membership',
     'nav.book': 'Book Appointment',
     
     // Hero Section
-    'hero.title': 'We are a mental and business consulting lab',
+    'hero.title': 'We are a laboratory of mentoring.',
     'hero.subtitle': 'You manage your business. We enrich and enhance it.',
     'hero.cta': 'Contact us',
     
@@ -80,6 +81,53 @@ const translations = {
     'footer.buenosAires': 'Buenos Aires, Argentina',
     'footer.newYork': 'New York, USA',
     'footer.budapest': 'Budapest, Hungary',
+    
+    // Membership
+    'membership.title': 'Choose Your Plan',
+    'membership.subtitle': 'Select the perfect membership plan that fits your business needs',
+    'membership.mostPopular': 'Most Popular',
+    'membership.included': 'What\'s Included',
+    'membership.notIncluded': 'Not Included',
+    'membership.selectPlan': 'Select Plan',
+    'membership.securePayment': 'Secure Payment',
+    'membership.note': 'All plans include a 30-day money-back guarantee. Cancel anytime.',
+    
+    // Membership Features
+    'membership.features.basicConsultation': 'Basic consultation access',
+    'membership.features.emailSupport': 'Email support',
+    'membership.features.newsletter': 'Monthly newsletter',
+    'membership.features.communityForum': 'Community forum access',
+    'membership.features.prioritySupport': 'Priority support',
+    'membership.features.advancedAnalytics': 'Advanced analytics',
+    'membership.features.customStrategies': 'Custom strategies',
+    'membership.features.oneOnOneSessions': '1-on-1 sessions',
+    'membership.features.everythingInFree': 'Everything in Free',
+    'membership.features.monthlySession': 'Monthly 1-on-1 session',
+    'membership.features.exclusiveWorkshops': 'Exclusive workshops',
+    'membership.features.unlimitedSessions': 'Unlimited sessions',
+    'membership.features.personalMentor': 'Personal mentor',
+    'membership.features.customIntegrations': 'Custom integrations',
+    'membership.features.everythingInPremium': 'Everything in Premium',
+    'membership.features.priorityScheduling': 'Priority scheduling',
+    'membership.features.exclusiveEvents': 'Exclusive events',
+    'membership.features.dedicatedSupport': 'Dedicated support team',
+    
+    // Auth
+    'auth.login': 'Login',
+    'auth.signup': 'Sign Up',
+    'auth.loginSubtitle': 'Welcome back! Please enter your details.',
+    'auth.signupSubtitle': 'Create your account to get started.',
+    'auth.name': 'Full Name',
+    'auth.email': 'Email Address',
+    'auth.password': 'Password',
+    'auth.confirmPassword': 'Confirm Password',
+    'auth.rememberMe': 'Remember me',
+    'auth.forgotPassword': 'Forgot password?',
+    'auth.loginButton': 'Sign In',
+    'auth.signupButton': 'Create Account',
+    'auth.orContinueWith': 'Or continue with',
+    'auth.noAccount': 'Don\'t have an account?',
+    'auth.haveAccount': 'Already have an account?',
   },
   es: {
     // Navigation
@@ -87,10 +135,11 @@ const translations = {
     'nav.services': 'Servicios',
     'nav.about': 'Sobre Nosotros',
     'nav.contact': 'Contacto',
+    'nav.membership': 'Membresía',
     'nav.book': 'Reservar Cita',
     
     // Hero Section
-    'hero.title': 'Somos un laboratorio de consultoría mental y empresarial',
+    'hero.title': 'Somos un laboratorio de consultoría',
     'hero.subtitle': 'Tú gestionas tu negocio. Nosotros lo enriquecemos y potenciamos.',
     'hero.cta': 'Contáctanos',
     
@@ -149,6 +198,53 @@ const translations = {
     'footer.buenosAires': 'Buenos Aires, Argentina',
     'footer.newYork': 'Nueva York, EE.UU.',
     'footer.budapest': 'Budapest, Hungría',
+    
+    // Membership
+    'membership.title': 'Elige Tu Plan',
+    'membership.subtitle': 'Selecciona el plan de membresía perfecto que se adapte a las necesidades de tu negocio',
+    'membership.mostPopular': 'Más Popular',
+    'membership.included': 'Qué Incluye',
+    'membership.notIncluded': 'No Incluido',
+    'membership.selectPlan': 'Seleccionar Plan',
+    'membership.securePayment': 'Pago Seguro',
+    'membership.note': 'Todos los planes incluyen garantía de devolución de 30 días. Cancela en cualquier momento.',
+    
+    // Membership Features
+    'membership.features.basicConsultation': 'Acceso a consultas básicas',
+    'membership.features.emailSupport': 'Soporte por email',
+    'membership.features.newsletter': 'Boletín mensual',
+    'membership.features.communityForum': 'Acceso al foro comunitario',
+    'membership.features.prioritySupport': 'Soporte prioritario',
+    'membership.features.advancedAnalytics': 'Analíticas avanzadas',
+    'membership.features.customStrategies': 'Estrategias personalizadas',
+    'membership.features.oneOnOneSessions': 'Sesiones 1 a 1',
+    'membership.features.everythingInFree': 'Todo lo de Free',
+    'membership.features.monthlySession': 'Sesión mensual 1 a 1',
+    'membership.features.exclusiveWorkshops': 'Talleres exclusivos',
+    'membership.features.unlimitedSessions': 'Sesiones ilimitadas',
+    'membership.features.personalMentor': 'Mentor personal',
+    'membership.features.customIntegrations': 'Integraciones personalizadas',
+    'membership.features.everythingInPremium': 'Todo lo de Premium',
+    'membership.features.priorityScheduling': 'Programación prioritaria',
+    'membership.features.exclusiveEvents': 'Eventos exclusivos',
+    'membership.features.dedicatedSupport': 'Equipo de soporte dedicado',
+    
+    // Auth
+    'auth.login': 'Iniciar Sesión',
+    'auth.signup': 'Registrarse',
+    'auth.loginSubtitle': '¡Bienvenido de vuelta! Por favor ingresa tus datos.',
+    'auth.signupSubtitle': 'Crea tu cuenta para comenzar.',
+    'auth.name': 'Nombre Completo',
+    'auth.email': 'Correo Electrónico',
+    'auth.password': 'Contraseña',
+    'auth.confirmPassword': 'Confirmar Contraseña',
+    'auth.rememberMe': 'Recordarme',
+    'auth.forgotPassword': '¿Olvidaste tu contraseña?',
+    'auth.loginButton': 'Iniciar Sesión',
+    'auth.signupButton': 'Crear Cuenta',
+    'auth.orContinueWith': 'O continúa con',
+    'auth.noAccount': '¿No tienes una cuenta?',
+    'auth.haveAccount': '¿Ya tienes una cuenta?',
   }
 } as const;
 

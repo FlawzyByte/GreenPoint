@@ -1,21 +1,143 @@
 .hero {
-  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  background: linear-gradient(135deg, rgb(176, 176, 10) 0%, rgb(200, 200, 20) 50%, rgb(176, 176, 10) 100%);
   overflow: hidden;
 }
 
-.hero-background {
+.hero::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="%23ffffff" fill-opacity="0.1" points="0,1000 1000,0 1000,1000"/></svg>');
-  background-size: cover;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.3) 0%, transparent 50%);
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,215,0,0.3)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 1;
+  pointer-events: none;
+  animation: grain 8s linear infinite;
+}
+
+/* Gold Sparkles Animation */
+.sparkle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #FFD700;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkleFloat 4s linear infinite;
+  box-shadow: 0 0 20px #FFD700, 0 0 40px #FFD700;
+  z-index: 3;
+}
+
+.sparkle:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 3s;
+}
+
+.sparkle:nth-child(2) {
+  top: 60%;
+  left: 80%;
+  animation-delay: 0.5s;
+  animation-duration: 4s;
+}
+
+.sparkle:nth-child(3) {
+  top: 80%;
+  left: 20%;
+  animation-delay: 1s;
+  animation-duration: 3.5s;
+}
+
+.sparkle:nth-child(4) {
+  top: 30%;
+  left: 70%;
+  animation-delay: 1.5s;
+  animation-duration: 4.5s;
+}
+
+.sparkle:nth-child(5) {
+  top: 70%;
+  left: 60%;
+  animation-delay: 2s;
+  animation-duration: 3s;
+}
+
+.sparkle:nth-child(6) {
+  top: 10%;
+  left: 50%;
+  animation-delay: 2.5s;
+  animation-duration: 4s;
+}
+
+.sparkle:nth-child(7) {
+  top: 50%;
+  left: 30%;
+  animation-delay: 3s;
+  animation-duration: 3.5s;
+}
+
+.sparkle:nth-child(8) {
+  top: 90%;
+  left: 90%;
+  animation-delay: 3.5s;
+  animation-duration: 4s;
+}
+
+@keyframes sparkleFloat {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(1deg); }
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -5%); }
+  20% { transform: translate(-10%, 5%); }
+  30% { transform: translate(5%, -10%); }
+  40% { transform: translate(-5%, 15%); }
+  50% { transform: translate(-10%, 5%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 10%); }
+  80% { transform: translate(-15%, 0%); }
+  90% { transform: translate(10%, 5%); }
 }
 
 .gradient-overlay {
@@ -24,7 +146,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.8) 0%, rgba(59, 130, 246, 0.8) 100%);
+  background: linear-gradient(135deg, rgba(176, 176, 10, 0.6) 0%, rgba(200, 200, 20, 0.6) 100%);
+  z-index: 1;
 }
 
 .hero-container {
@@ -37,49 +160,275 @@
 }
 
 .hero-content {
-  color: white;
+  text-align: center;
+  color: #000000;
+  z-index: 2;
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .hero-title {
   font-size: 3.5rem;
-  font-weight: 700;
+  font-weight: 400;
   margin-bottom: 1.5rem;
   line-height: 1.2;
+  color: #000000;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-title div:first-child {
+  animation: typewriter1 2s steps(30, end) forwards;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #000000;
+  width: 0;
+  display: inline-block;
+}
+
+.hero-title div:last-child {
+  animation: typewriter2 2s steps(20, end) 2s forwards;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #000000;
+  width: 0;
+  display: inline-block;
+}
+
+.hero-title div:first-child.animate-complete {
+  border-right: none;
+}
+
+.hero-title div:last-child.animate-complete {
+  border-right: none;
+}
+
+@keyframes typewriter1 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes typewriter2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Gold Money Sparkles Animation */
+.sparkle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: linear-gradient(45deg, #FFD700, #FFA500, #FFD700);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: moneyFloat 5s linear infinite;
+  box-shadow: 
+    0 0 25px #FFD700,
+    0 0 50px #FFA500,
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+  z-index: 3;
+}
+
+.sparkle::before {
+  content: '$';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #8B4513;
+  font-weight: bold;
+  font-size: 8px;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.sparkle:nth-child(1) {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+  animation-duration: 4s;
+}
+
+.sparkle:nth-child(2) {
+  top: 60%;
+  left: 80%;
+  animation-delay: 0.8s;
+  animation-duration: 5s;
+}
+
+.sparkle:nth-child(3) {
+  top: 80%;
+  left: 20%;
+  animation-delay: 1.6s;
+  animation-duration: 4.5s;
+}
+
+.sparkle:nth-child(4) {
+  top: 30%;
+  left: 70%;
+  animation-delay: 2.4s;
+  animation-duration: 5.5s;
+}
+
+.sparkle:nth-child(5) {
+  top: 70%;
+  left: 60%;
+  animation-delay: 3.2s;
+  animation-duration: 4s;
+}
+
+.sparkle:nth-child(6) {
+  top: 10%;
+  left: 50%;
+  animation-delay: 4s;
+  animation-duration: 5s;
+}
+
+.sparkle:nth-child(7) {
+  top: 50%;
+  left: 30%;
+  animation-delay: 4.8s;
+  animation-duration: 4.5s;
+}
+
+.sparkle:nth-child(8) {
+  top: 90%;
+  left: 90%;
+  animation-delay: 5.6s;
+  animation-duration: 5s;
+}
+
+@keyframes moneyFloat {
+  0% {
+    transform: translateY(100vh) rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(90vh) rotate(45deg) scale(1);
+  }
+  50% {
+    transform: translateY(50vh) rotate(180deg) scale(1.2);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(10vh) rotate(315deg) scale(1);
+  }
+  100% {
+    transform: translateY(-50px) rotate(360deg) scale(0.8);
+    opacity: 0;
+  }
 }
 
 .hero-subtitle {
   font-size: 1.25rem;
-  margin-bottom: 2.5rem;
-  opacity: 0.9;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 2rem;
   line-height: 1.6;
+  color: #000000;
+  font-weight: 400;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 1s ease-out 3.5s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero-cta {
   margin-top: 2rem;
+  display: inline-block;
+  position: relative;
+  isolation: isolate;
+  animation: bounceIn 1s ease-out 4.5s forwards;
+  opacity: 0;
+  transform: scale(0.3);
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .cta-button {
-  display: inline-block;
-  background: #10b981;
-  color: white;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  color: rgb(176, 176, 10);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   padding: 15px 30px;
-  border-radius: 50px;
-  text-decoration: none;
+  font-size: 1.125rem;
   font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  border-radius: 50px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  pointer-events: auto;
+  display: inline-block;
+  width: auto;
+  min-width: 150px;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.cta-button:hover::before {
+  left: 100%;
 }
 
 .cta-button:hover {
-  background: #059669;
+  background: linear-gradient(135deg, #ffffff 0%, #f1f3f4 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.cta-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(176, 176, 10, 0.3);
 }
 
 @media (max-width: 768px) {

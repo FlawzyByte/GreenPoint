@@ -60,7 +60,7 @@
 }
 
 .highlight {
-  color: #10b981 !important;
+  color: rgb(176, 176, 10) !important;
   font-weight: 600;
 }
 
@@ -151,7 +151,7 @@
 }
 
 .phase-card:hover .phase-title {
-  color: #10b981;
+  color: rgb(176, 176, 10);
 }
 
 .phase-description {
@@ -172,7 +172,7 @@
   right: -15px;
   width: 35px;
   height: 35px;
-  background: #10b981;
+  background: #3b82f6;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -185,10 +185,21 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
+.phase-card:nth-child(1) .phase-number {
+  background: #3b82f6;
+}
+
+.phase-card:nth-child(2) .phase-number {
+  background: #10b981;
+}
+
+.phase-card:nth-child(3) .phase-number {
+  background: #f59e0b;
+}
+
 .phase-card:hover .phase-number {
   transform: scale(1.2);
-  background: #059669;
-  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .phases-note {

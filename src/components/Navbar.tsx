@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-scroll';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import Flag from 'react-flagkit';
 import logoTransparent from '../assets/logo_transparent.png';
@@ -7,11 +8,25 @@ import './Navbar.css';
 
 const Navbar: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const languageRef = useRef<HTMLDivElement>(null);
+
+  const isHomePage = location.pathname === '/';
+
+  const handleHomeClick = () => {
+    if (!isHomePage) {
+      navigate('/');
+    } else {
+      // If we're already on home page, scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
 
   const toggleMenu = useCallback(() => {
     setIsMenuOpen(prev => !prev);
@@ -71,61 +86,113 @@ const Navbar: React.FC = () => {
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`} role="navigation" aria-label="Main navigation">
       <div className="navbar-container">
         <div className="navbar-logo">
-          <Link 
-            to="home" 
-            smooth={true} 
-            duration={500} 
+          <button 
+            onClick={handleHomeClick}
             className="logo-link"
             aria-label="Go to home"
           >
             <img src={logoTransparent} alt="Green Point Logo" className="logo" loading="eager" />
-          </Link>
+          </button>
         </div>
         
         <div className={`navbar-menu ${isMenuOpen ? 'active' : ''}`} ref={menuRef}>
-          <Link 
-            to="home" 
-            smooth={true} 
-            duration={500} 
-            className="nav-link" 
-            onClick={() => setIsMenuOpen(false)}
-            aria-label={t('nav.home')}
+          {isHomePage ? (
+            <>
+              <Link 
+                to="home" 
+                smooth={true} 
+                duration={500} 
+                className="nav-link" 
+                onClick={() => setIsMenuOpen(false)}
+                aria-label={t('nav.home')}
+              >
+                {t('nav.home')}
+              </Link>
+              <Link 
+                to="services" 
+                smooth={true} 
+                duration={500} 
+                className="nav-link" 
+                onClick={() => setIsMenuOpen(false)}
+                aria-label={t('nav.services')}
+              >
+                {t('nav.services')}
+              </Link>
+              <Link 
+                to="about" 
+                smooth={true} 
+                duration={500} 
+                className="nav-link" 
+                onClick={() => setIsMenuOpen(false)}
+                aria-label={t('nav.about')}
+              >
+                {t('nav.about')}
+              </Link>
+              <Link
+                to="contact"
+                smooth={true}
+                duration={500}
+                className="nav-link"
+                onClick={() => setIsMenuOpen(false)}
+                aria-label={t('nav.contact')}
+              >
+                {t('nav.contact')}
+              </Link>
+            </>
+          ) : (
+            <>
+              <button
+                className="nav-link"
+                onClick={handleHomeClick}
+                aria-label={t('nav.home')}
+              >
+                {t('nav.home')}
+              </button>
+              <button
+                className="nav-link"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  navigate('/#services');
+                }}
+                aria-label={t('nav.services')}
+              >
+                {t('nav.services')}
+              </button>
+              <button
+                className="nav-link"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  navigate('/#about');
+                }}
+                aria-label={t('nav.about')}
+              >
+                {t('nav.about')}
+              </button>
+              <button
+                className="nav-link"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  navigate('/#contact');
+                }}
+                aria-label={t('nav.contact')}
+              >
+                {t('nav.contact')}
+              </button>
+            </>
+          )}
+          <button
+            className="nav-link membership-nav-link"
+            onClick={() => {
+              setIsMenuOpen(false);
+              navigate('/membership');
+            }}
+            aria-label={t('nav.membership')}
           >
-            {t('nav.home')}
-          </Link>
-          <Link 
-            to="services" 
-            smooth={true} 
-            duration={500} 
-            className="nav-link" 
-            onClick={() => setIsMenuOpen(false)}
-            aria-label={t('nav.services')}
-          >
-            {t('nav.services')}
-          </Link>
-          <Link 
-            to="about" 
-            smooth={true} 
-            duration={500} 
-            className="nav-link" 
-            onClick={() => setIsMenuOpen(false)}
-            aria-label={t('nav.about')}
-          >
-            {t('nav.about')}
-          </Link>
-          <Link 
-            to="contact" 
-            smooth={true} 
-            duration={500} 
-            className="nav-link" 
-            onClick={() => setIsMenuOpen(false)}
-            aria-label={t('nav.contact')}
-          >
-            {t('nav.contact')}
-          </Link>
+            {t('nav.membership')}
+          </button>
         </div>
 
-        <div className="language-switcher">
+        <div className="navbar-right">
           <div className="language-dropdown" ref={languageRef}>
             <button 
               className="lang-dropdown-btn" 
@@ -162,6 +229,13 @@ const Navbar: React.FC = () => {
               </button>
             </div>
           </div>
+          <button
+            className="login-nav-button"
+            onClick={() => navigate('/login')}
+            aria-label={t('auth.login')}
+          >
+            {t('auth.login')}
+          </button>
         </div>
 
         <button 

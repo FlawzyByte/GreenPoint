@@ -1,21 +1,22 @@
 import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 import { LanguageProvider } from './context/LanguageContext';
 
-// Lazy load components for better performance
 const Navbar = lazy(() => import('./components/Navbar'));
 const Hero = lazy(() => import('./components/Hero'));
 const Services = lazy(() => import('./components/Services'));
 const About = lazy(() => import('./components/About'));
 const Contact = lazy(() => import('./components/Contact'));
 const Footer = lazy(() => import('./components/Footer'));
+const MembershipPage = lazy(() => import('./components/MembershipPage'));
+const LoginPage = lazy(() => import('./components/LoginPage'));
 
-// Loading fallback component
 const LoadingFallback: React.FC = () => (
-  <div style={{ 
-    display: 'flex', 
-    justifyContent: 'center', 
-    alignItems: 'center', 
+  <div style={{
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     height: '100vh',
     fontSize: '1.2rem',
     color: '#666'
@@ -24,7 +25,6 @@ const LoadingFallback: React.FC = () => (
   </div>
 );
 
-// Error boundary component
 class ErrorBoundary extends React.Component<
   { children: React.ReactNode },
   { hasError: boolean }
@@ -39,10 +39,7 @@ class ErrorBoundary extends React.Component<
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    // Log error to secure error reporting service in production
-    // For now, silently handle the error without exposing details
     if (process.env.NODE_ENV === 'development') {
-      // Only log in development, never in production
       console.error('Application error:', error, errorInfo);
     }
   }
@@ -50,18 +47,18 @@ class ErrorBoundary extends React.Component<
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ 
-          display: 'flex', 
+        <div style={{
+          display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center', 
-          alignItems: 'center', 
+          justifyContent: 'center',
+          alignItems: 'center',
           height: '100vh',
           padding: '2rem',
           textAlign: 'center'
         }}>
           <h1>Something went wrong</h1>
           <p>We're sorry, but there was an error loading the application.</p>
-          <button 
+          <button
             onClick={() => window.location.reload()}
             style={{
               padding: '0.75rem 1.5rem',
@@ -78,25 +75,36 @@ class ErrorBoundary extends React.Component<
         </div>
       );
     }
-
     return this.props.children;
   }
 }
+
+const HomePage: React.FC = () => (
+  <>
+    <Navbar />
+    <Hero />
+    <Services />
+    <About />
+    <Contact />
+    <Footer />
+  </>
+);
 
 function App() {
   return (
     <ErrorBoundary>
       <LanguageProvider>
-        <div className="App">
-          <Suspense fallback={<LoadingFallback />}>
-            <Navbar />
-            <Hero />
-            <Services />
-            <About />
-            <Contact />
-            <Footer />
-          </Suspense>
-        </div>
+        <Router>
+          <div className="App">
+            <Suspense fallback={<LoadingFallback />}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/membership" element={<MembershipPage />} />
+                <Route path="/login" element={<LoginPage />} />
+              </Routes>
+            </Suspense>
+          </div>
+        </Router>
       </LanguageProvider>
     </ErrorBoundary>
   );
